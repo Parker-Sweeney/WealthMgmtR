@@ -22,9 +22,6 @@ get_yield_1y <- function() {
   attempt_fetch_yield <- function(date_string) {
     api_url <- paste0("https://www.ustreasuryyieldcurve.com/api/v1/yield_curve_snapshot?date=", date_string)
     response <- GET(api_url)
-    print(date_string)
-    print(api_url)
-    print(response)
     if (response$status_code == 200) {
       content <- rawToChar(response$content)
       data <- fromJSON(content)
